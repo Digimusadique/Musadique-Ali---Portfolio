@@ -278,3 +278,27 @@ $(".change").click(function () {
     i = 0
   }
 });
+
+// Back button kaam karne ke liye
+document.addEventListener("click", function (e) {
+  if (e.target.closest(".section-back")) {
+    e.preventDefault();
+
+    let header = document.querySelector("#header");
+    let sections = document.querySelectorAll("section");
+
+    // Sare sections hide karo
+    sections.forEach((item) => {
+      item.classList.remove("section-show");
+    });
+
+    // Header ko show karo
+    header.classList.remove("header-top");
+
+    // Active nav link reset karo
+    document.querySelectorAll("#navbar .nav-link").forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
+});
+
